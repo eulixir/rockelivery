@@ -1,0 +1,8 @@
+{
+  "skip_files": [
+      "test/support/",
+      "lib/rockelivery_web.ex",
+      "lib/rockelivery.ex",
+      "lib/rockelivery/application.ex"
+  ]
+}
