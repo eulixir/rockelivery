@@ -5,7 +5,7 @@ defmodule RockeliveryWeb.OrdersView do
 
   def render("create.json", %{order: %Order{} = order}) do
     %{
-      message: "Item created successfully",
+      message: "Order created",
       order: order
     }
   end

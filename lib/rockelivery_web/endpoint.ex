@@ -7,8 +7,12 @@ defmodule RockeliveryWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_rockelivery_key",
-    signing_salt: "b7wCKlY8"
+    signing_salt: "dgPu7DBc"
   ]
+
+  socket "/socket", RockeliveryWeb.UserSocket,
+    websocket: true,
+    longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 

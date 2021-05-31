@@ -1,15 +1,17 @@
 defmodule Rockelivery.User do
   use Ecto.Schema
+
   import Ecto.Changeset
 
-  alias Ecto.Changeset
   alias Rockelivery.Order
+
+  alias Ecto.Changeset
+
+  @derive {Jason.Encoder, only: [:age, :address, :cep, :cpf, :id, :email, :name]}
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_params [:age, :address, :cep, :cpf, :email, :password, :name]
-
-  @derive {Jason.Encoder, only: [:age, :address, :cep, :cpf, :id, :email, :name]}
+  @required_params [:age, :address, :cep, :email, :cpf, :password, :name]
 
   schema "users" do
     field :age, :integer
@@ -26,14 +28,10 @@ defmodule Rockelivery.User do
     timestamps()
   end
 
-  def build(params) do
-    params
-    |> changeset()
-    |> apply_action(:insert)
-  end
+  def build(changeset), do: apply_action(changeset, :create)
 
-  def changeset(changeset \\ %__MODULE__{}, params) do
-    changeset
+  def changeset(struct \\ %__MODULE__{}, params) do
+    struct
     |> cast(params, @required_params)
     |> validate_required(@required_params)
     |> validate_length(:password, min: 6)
@@ -42,6 +40,7 @@ defmodule Rockelivery.User do
     |> validate_number(:age, greater_than_or_equal_to: 18)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
+    |> unique_constraint([:cpf])
     |> put_password_hash()
   end
 

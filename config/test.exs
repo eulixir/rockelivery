@@ -7,7 +7,7 @@ use Mix.Config
 # Run `mix help test` for more information.
 config :rockelivery, Rockelivery.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "@dmin",
   database: "rockelivery_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
@@ -19,8 +19,6 @@ config :rockelivery, Rockelivery.Users.Create, via_cep_adapter: Rockelivery.ViaC
 config :rockelivery, RockeliveryWeb.Endpoint,
   http: [port: 4002],
   server: false
-
-config :pbkdf2_elixir, :rounds, 1
 
 # Print only warnings and errors during test
 config :logger, level: :warn

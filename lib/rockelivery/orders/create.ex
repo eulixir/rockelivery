@@ -2,7 +2,8 @@ defmodule Rockelivery.Orders.Create do
   import Ecto.Query
 
   alias Rockelivery.{Error, Item, Order, Repo}
-  alias Rockelivery.Orders.ValidateAndMultiplyItems
+
+  alias Rockelivery.Orders.ValidateAndMultipyItems
 
   def call(%{"items" => items_params} = params) do
     items_ids = Enum.map(items_params, fn item -> item["id"] end)
@@ -11,7 +12,7 @@ defmodule Rockelivery.Orders.Create do
 
     query
     |> Repo.all()
-    |> ValidateAndMultiplyItems.call(items_ids, items_params)
+    |> ValidateAndMultipyItems.call(items_ids, items_params)
     |> handle_items(params)
   end
 

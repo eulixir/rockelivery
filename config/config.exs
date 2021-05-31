@@ -12,25 +12,25 @@ config :rockelivery,
 
 config :rockelivery, Rockelivery.Users.Create, via_cep_adapter: Rockelivery.ViaCep.Client
 
-config :rockelivery, RockeliveryWeb.Auth.Guardian,
-  issuer: "rockelivery",
-  secret_key: "y3LnWpovdwCkz57+XA+rFs6euiuObK3Kw2MclJ8dxExUqgY+jvnnLca0avjku2aS"
-
 config :rockelivery, RockeliveryWeb.Auth.Pipeline,
   module: RockeliveryWeb.Auth.Guardian,
   error_handler: RockeliveryWeb.Auth.ErrorHandler
 
-# Configures the endpoint
-config :rockelivery, RockeliveryWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "QrT1XpovVYrZkkTky62p1+ukW5G2QsuhZ8ejyYcLERjJuCo2rnXe1r+7JGR8NITX",
-  render_errors: [view: RockeliveryWeb.ErrorView, accepts: ~w(json), layout: false],
-  pubsub_server: Rockelivery.PubSub,
-  live_view: [signing_salt: "fvJ3gsOV"]
+config :rockelivery, RockeliveryWeb.Auth.Guardian,
+  issuer: "rockelivery",
+  secret_key: "R4bzexjxKoT/VxoGrLMH/d5CeWxMEGJ2uyCdDAe/Spaa7FBW1PzCCXGv8+li5Fy4"
 
 config :rockelivery, Rockelivery.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
+
+# Configures the endpoint
+config :rockelivery, RockeliveryWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "qhEXXWDhcJYbYxsbtw9+BZGoSEHP4sQQP4Gz8Wi9OcsZKF2XAvN2YJfdy29FWAfi",
+  render_errors: [view: RockeliveryWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: Rockelivery.PubSub,
+  live_view: [signing_salt: "91dnhsWt"]
 
 # Configures Elixir's Logger
 config :logger, :console,

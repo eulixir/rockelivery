@@ -1,7 +1,7 @@
 defmodule Rockelivery.Repo.Migrations.CreateItemCategoryType do
   use Ecto.Migration
 
-  def change do
+  def up do
     up_query = "CREATE TYPE item_category AS ENUM ('food', 'drink', 'desert')"
     down_query = "DROP TYPE item_category"
 

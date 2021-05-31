@@ -6,14 +6,14 @@ defmodule RockeliveryWeb.Plugs.UUIDChecker do
 
   def init(options), do: options
 
-  def call(%Conn{params: %{"id" => id}} = conn, _opts) do
+  def call(%Conn{params: %{"id" => id}} = conn, _options) do
     case UUID.cast(id) do
       :error -> render_error(conn)
       {:ok, _uuid} -> conn
     end
   end
 
-  def call(%Conn{} = conn, _opts), do: conn
+  def call(conn, _opts), do: conn
 
   defp render_error(conn) do
     body = Jason.encode!(%{message: "Invalid UUID"})

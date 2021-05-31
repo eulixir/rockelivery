@@ -17,7 +17,6 @@ defmodule Rockelivery.Application do
       RockeliveryWeb.Endpoint,
       # Start a worker by calling: Rockelivery.Worker.start_link(arg)
       # {Rockelivery.Worker, arg}
-
       Rockelivery.Orders.ReportRunner
     ]
 

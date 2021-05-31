@@ -1,4 +1,4 @@
-defmodule Rockelivery.Orders.ValidateAndMultiplyItems do
+defmodule Rockelivery.Orders.ValidateAndMultipyItems do
   def call(items, items_ids, items_params) do
     items_map = Map.new(items, fn item -> {item.id, item} end)
 
@@ -8,7 +8,7 @@ defmodule Rockelivery.Orders.ValidateAndMultiplyItems do
     |> multiply_items(items_map, items_params)
   end
 
-  defp multiply_items(true, _items, _items_params), do: {:error, "Invalid ids!"}
+  defp multiply_items(true, _items, _items_params), do: {:error, "invalid ids!"}
 
   defp multiply_items(false, items, items_params) do
     items =

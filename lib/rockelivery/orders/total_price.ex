@@ -1,7 +1,7 @@
 defmodule Rockelivery.Orders.TotalPrice do
   alias Rockelivery.Item
 
-  def call(items) do
+  def calculate(items) do
     Enum.reduce(items, Decimal.new("0.00"), &sum_prices(&1, &2))
   end
 

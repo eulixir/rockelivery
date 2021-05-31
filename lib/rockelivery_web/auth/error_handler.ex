@@ -1,6 +1,5 @@
 defmodule RockeliveryWeb.Auth.ErrorHandler do
   alias Guardian.Plug.ErrorHandler
-
   alias Plug.Conn
 
   @behaviour ErrorHandler

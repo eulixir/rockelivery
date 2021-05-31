@@ -1,4 +1,4 @@
-defmodule Rockelivery.Repo.Migrations.CreatePaymentMethodType do
+defmodule Rockelivery.Repo.Migrations.CreatePaymentMethods do
   use Ecto.Migration
 
   def change do
